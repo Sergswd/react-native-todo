@@ -6,10 +6,9 @@ import { MainScreen } from './src/screens/MainScreen';
 import { TodoScreen } from './src/screens/TodoScreen';
 
 export default function App() {
-  const [todoId, setTodoId] = useState('2');
+  const [todoId, setTodoId] = useState(null);
   const [todos, setTodos] = useState([
-    {id: '1', title: 'Выучить React Native'},
-    {id: '2', title: 'Написать приложение'}
+    {id: '1', title: 'Выучить React Native'}
   ]);
 
   const addTodo = (title) => {
