@@ -7,6 +7,7 @@ import AppLoading from 'expo-app-loading'
 import { Navbar } from './src/components/Navbar'
 import { MainScreen } from './src/screens/MainScreen'
 import { TodoScreen } from './src/screens/TodoScreen'
+import { THEME } from './src/theme'
 
 async function loadApplication() {
   await Font.loadAsync({
@@ -19,7 +20,7 @@ export default function App() {
   const [isReady, setIsReady] = useState(false)
   const [todoId, setTodoId] = useState(null)
   const [todos, setTodos] = useState([
-    {id: '1', title: 'Выучить React Native'}
+    {id: '1', title: 'Learn React Native'}
   ])
 
   if (!isReady) {
@@ -45,14 +46,14 @@ export default function App() {
   const removeTodo = (id) => {
     const remTodo = todos.find(todo => todo.id === id)
     Alert.alert(
-      "Удаление элемента",
-      `Вы уверены что хотите удалить "${remTodo.title}"?`,
+      "deleting an item",
+      `Are you sure you want to delete "${remTodo.title}"?`,
       [
         {
-          text: "Отмена",
+          text: "Cancel",
           style: "cancel"
         },
-        { text: "Удалить", 
+        { text: "Delete", 
           onPress: () => {
             setTodoId(null)
             setTodos(prev => prev.filter(todo => todo.id !== id))
@@ -107,7 +108,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 30,
+    paddingHorizontal: THEME.PADDING_GORIZONTAL,
     paddingVertical: 20
   } 
 });

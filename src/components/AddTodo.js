@@ -12,7 +12,7 @@ export const AddTodo = ({onSubmit}) => {
       setValue('')
       Keyboard.dismiss()
     } else {
-      Alert.alert('Название дела не может быть пустым')
+      Alert.alert('Case title cannot be empty')
     }
   }
 
@@ -21,13 +21,13 @@ export const AddTodo = ({onSubmit}) => {
       <TextInput 
         style={styles.input}
         value={value}
-        placeholder='Введите название дела...'
+        placeholder='Enter the name of the case...'
         onChangeText={setValue}
         autoCorrect={false}
         autoCapitalize='none'
       />
       <AntDesign.Button name='pluscircleo' onPress={pressHandler} >
-        Добавить
+        Add
       </AntDesign.Button>
     </View>
   )

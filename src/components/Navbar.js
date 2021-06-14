@@ -5,7 +5,10 @@ import { AppTextBold } from './ui/AppTextBold';
 
 export const Navbar = ({text}) => {
   return (
-    <View style={styles.navbar}>
+    <View style={{...styles.navbar, ...Platform.select({
+      ios: styles.navbarIos,
+      android: styles.navbarAndroid
+    })}}>
       <AppTextBold style={styles.text}>{text}</AppTextBold>
     </View>
   )
@@ -17,10 +20,16 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    backgroundColor: THEME.MAIN_COLOR,
+  },
+  navbarAndroid: {
+    backgroundColor: THEME.MAIN_COLOR
+  },
+  navbarIos: {
+    borderBottomColor: THEME.MAIN_COLOR,
+    borderBottomWidth: 1
   },
   text: {
-    color: 'white',
+    color: Platform.OS === 'ios' ? THEME.MAIN_COLOR : '#fff',
     fontSize: 20
   },
 })
