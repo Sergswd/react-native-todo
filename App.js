@@ -19,9 +19,7 @@ async function loadApplication() {
 export default function App() {
   const [isReady, setIsReady] = useState(false)
   const [todoId, setTodoId] = useState(null)
-  const [todos, setTodos] = useState([
-    {id: '1', title: 'Learn React Native'}
-  ])
+  const [todos, setTodos] = useState([])
 
   if (!isReady) {
     return (
