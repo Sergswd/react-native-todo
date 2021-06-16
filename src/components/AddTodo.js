@@ -3,7 +3,7 @@ import { View, StyleSheet, TextInput, Alert, Keyboard } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import { THEME } from '../theme'
 
-export const AddTodo = ({onSubmit}) => {
+export const AddTodo = ({ onSubmit }) => {
   const [value, setValue] = useState('')
 
   const pressHandler = () => {
