@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
-import { View, StyleSheet, FlatList, Image, Dimensions } from 'react-native';
-import { AddTodo } from '../components/AddTodo';
-import { Todo } from '../components/Todo';
-import { ScreenContext } from '../context/screen/screenContext';
-import { TodoContext } from '../context/todo/todoContext';
-import { THEME } from '../theme';
+import React, { useState, useEffect, useContext, useCallback } from 'react'
+import { View, StyleSheet, FlatList, Image, Dimensions } from 'react-native'
+import { AddTodo } from '../components/AddTodo'
+import { Todo } from '../components/Todo'
+import { ScreenContext } from '../context/screen/screenContext'
+import { TodoContext } from '../context/todo/todoContext'
+import { THEME } from '../theme'
+import { AppLoader } from '../components/ui/AppLoader'
 
 export const MainScreen = () => {
   const { addTodo, todos, removeTodo, fetchTodos, loading, error } = useContext(TodoContext)
@@ -31,6 +32,10 @@ export const MainScreen = () => {
       Dimensions.removeEventListener('change', update)
     }
   })  
+
+  if (loading) {
+    return <AppLoader />
+  }
   
   let content = (
     <View style={{ width: deviceWidth }}>
