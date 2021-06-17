@@ -1,3 +1,3 @@
-import React from 'react'
+import { createContext } from 'react'
 
-export const ScreenContext = React.createContext()
+export const ScreenContext = createContext()
